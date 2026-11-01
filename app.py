@@ -5,7 +5,7 @@ import os
 # Initialize Groq client
 llm = ChatGroq(
     temperature=0,
-    model_name="mixtral-8x7b-32768",
+    model_name="llama-3.3-70b-versatile",
     api_key=os.environ.get("GROQ_API_KEY"),
 )
 
