@@ -1,14 +1,22 @@
 import streamlit as st
-from crewai import Agent, Crew, Process
 from langchain_groq import ChatGroq
+import os
 
-st.set_page_config(page_title="منصة الذكاء الاصطناعي والإبداع")
-st.title("أدوات الذكاء الاصطناعي والإبداع")
+# Initialize Groq client
+llm = ChatGroq(temperature=0, model_name="mixtral-8x7b-32768")
 
-st.write("Midjourney للصور، Canva للتصميم، Recraft للمتجهات، وKling للمونتاج.")
+st.set_page_config(page_title="Artificial Intelligence tools and creativity")
+st.title("Artificial intelligence and creativity tools")
 
-user_prompt = st.text_input("أدخل سؤالك أو الموضوع الذي تود تحليله:")
+st.write(
+    "For vectors: Recraft, for design: Canva, for images: Midjourney, for editing: Kling and Veed."
+)
 
-if st.button("بدء المعالجة"):
+user_prompt = st.text_input("Enter your question or the topic you want to analyze:")
+
+if st.button("Start processing"):
     if user_prompt:
-        st.write("يتم الآن معالجة طلبك...")
+        st.write("Your request is being processed...")
+        response = llm.invoke(user_prompt)
+        st.write(response.content)
+``` الكود في ملف app dot py على—
