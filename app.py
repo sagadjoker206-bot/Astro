@@ -3,7 +3,11 @@ from langchain_groq import ChatGroq
 import os
 
 # Initialize Groq client
-llm = ChatGroq(temperature=0, model_name="mixtral-8x7b-32768")
+llm = ChatGroq(
+    temperature=0,
+    model_name="mixtral-8x7b-32768",
+    api_key=os.environ.get("GROQ_API_KEY"),
+)
 
 st.set_page_config(page_title="Artificial Intelligence tools and creativity")
 st.title("Artificial intelligence and creativity tools")
